@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, Outlet, NavLink } from "react-router-dom";
 
 export default function HostVanDetail() {
   const [currentVan, setCurrentVan] = useState(null);
 
   const { id } = useParams();
 
+  const activeStyles = {
+    fontWeight: "bold",
+    textDecoration: "underline",
+    color: "#161616",
+  };
   useEffect(() => {
     fetch(`/api/host/vans/${id}`)
       .then((res) => res.json())
@@ -15,12 +20,11 @@ export default function HostVanDetail() {
   if (!currentVan) {
     return <h1>Loading....</h1>;
   }
-  console.log(currentVan);
   return (
     <section>
       <Link to=".." relative="path" className="back-button">
         &larr; <span>Back to all vans</span>
-      </Link> 
+      </Link>
 
       <div className="host-van-detail-layout-container">
         <div className="host-van-detail">
@@ -33,6 +37,29 @@ export default function HostVanDetail() {
             <h4>${currentVan.price}/day</h4>
           </div>
         </div>
+
+        <nav className="host-van-detail-nav">
+          <NavLink
+            style={({ isActive }) => (isActive ? activeStyles : null)}
+            to="."
+            end
+          >
+            Details
+          </NavLink>
+          <NavLink
+            style={({ isActive }) => (isActive ? activeStyles : null)}
+            to="pricing"
+          >
+            Pricing
+          </NavLink>
+          <NavLink
+            style={({ isActive }) => (isActive ? activeStyles : null)}
+            to="photos"
+          >
+            Photos
+          </NavLink>
+        </nav>
+        <Outlet context={{currentVan}}/>
       </div>
     </section>
   );
