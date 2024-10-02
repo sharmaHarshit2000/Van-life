@@ -1,25 +1,20 @@
-import { useEffect, useState } from "react";
-import { Link, useParams, Outlet, NavLink } from "react-router-dom";
+import { Link, Outlet, NavLink, useLoaderData } from "react-router-dom";
+import { getHostVans } from "../../api";
+import { requiredAuth } from "../../utils";
 
+export async function loader({ params, request }) {
+  await requiredAuth(request);
+  return getHostVans(params.id);
+}
 export default function HostVanDetail() {
-  const [currentVan, setCurrentVan] = useState(null);
-
-  const { id } = useParams();
+  const currentVan = useLoaderData();
 
   const activeStyles = {
     fontWeight: "bold",
     textDecoration: "underline",
     color: "#161616",
   };
-  useEffect(() => {
-    fetch(`/api/host/vans/${id}`)
-      .then((res) => res.json())
-      .then((data) => setCurrentVan(data.vans));
-  }, []);
 
-  if (!currentVan) {
-    return <h1>Loading....</h1>;
-  }
   return (
     <section>
       <Link to=".." relative="path" className="back-button">
@@ -59,7 +54,7 @@ export default function HostVanDetail() {
             Photos
           </NavLink>
         </nav>
-        <Outlet context={{currentVan}}/>
+        <Outlet context={{ currentVan }} />
       </div>
     </section>
   );
