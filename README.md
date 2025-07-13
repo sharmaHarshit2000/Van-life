@@ -55,46 +55,46 @@ To get this project running locally:
 
 ## 📂 Project Structure
 
+```
 van-life/
-├── public/ # Static files (favicon, etc.)
+├── public/                  # Static files (favicon, etc.)
 ├── src/
-│ ├── assets/
-│ │ └── images/ # App images (about-hero.png, home-hero.png, etc.)
-│ ├── components/ # Reusable UI components
-│ │ ├── Error.jsx
-│ │ ├── Footer.jsx
-│ │ ├── Header.jsx
-│ │ ├── HostLayout.jsx
-│ │ └── Layout.jsx
-│ ├── pages/ # Main pages
-│ │ ├── About.jsx
-│ │ ├── Home.jsx
-│ │ ├── Login.jsx
-│ │ ├── NotFound.jsx
-│ │ ├── Vans/ # Van listing pages
-│ │ │ └── ... # Van-related page components
-│ │ ├── Host/ # Host-specific pages
-│ │ │ ├── Dashboard.jsx
-│ │ │ ├── HostVanDetail.jsx
-│ │ │ ├── HostVanInfo.jsx
-│ │ │ ├── HostVanPhotos.jsx
-│ │ │ ├── HostVanPricing.jsx
-│ │ │ ├── HostVans.jsx
-│ │ │ ├── Income.jsx
-│ │ │ └── Reviews.jsx
-│ ├── api.js # API utility or Mirage integration
-│ ├── index.css # Global styles
-│ ├── index.jsx # App entry point
-│ ├── server.js # MirageJS mock server
-│ └── utils.js # Utility functions
+│   ├── assets/
+│   │   └── images/          # App images (about-hero.png, home-hero.png, etc.)
+│   ├── components/          # Reusable UI components
+│   │   ├── Error.jsx
+│   │   ├── Footer.jsx
+│   │   ├── Header.jsx
+│   │   ├── HostLayout.jsx
+│   │   └── Layout.jsx
+│   ├── pages/               # Main pages
+│   │   ├── About.jsx
+│   │   ├── Home.jsx
+│   │   ├── Login.jsx
+│   │   ├── NotFound.jsx
+│   │   ├── Vans/            # Van listing pages
+│   │   │   └── ...          # Van-related page components
+│   │   └── Host/            # Host-specific pages
+│   │       ├── Dashboard.jsx
+│   │       ├── HostVanDetail.jsx
+│   │       ├── HostVanInfo.jsx
+│   │       ├── HostVanPhotos.jsx
+│   │       ├── HostVanPricing.jsx
+│   │       ├── HostVans.jsx
+│   │       ├── Income.jsx
+│   │       └── Reviews.jsx
+│   ├── api.js               # API utility or Mirage integration
+│   ├── index.css            # Global styles
+│   ├── index.jsx            # App entry point
+│   ├── server.js            # MirageJS mock server
+│   └── utils.js             # Utility functions
 ├── .gitattributes
 ├── .gitignore
 ├── package.json
 ├── package-lock.json
 ├── README.md
-├── vite.config.js
-
----
+└── vite.config.js
+```
 
 ## 💡 Usage
 
