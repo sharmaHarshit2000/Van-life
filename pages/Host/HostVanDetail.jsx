@@ -1,19 +1,23 @@
 import { Link, Outlet, NavLink, useLoaderData } from "react-router-dom";
-import { getHostVans } from "../../api";
+import { getHostVanById } from "../../api";
 import { requiredAuth } from "../../utils";
 
 export async function loader({ params, request }) {
   await requiredAuth(request);
-  return getHostVans(params.id);
+  return await getHostVanById(params.id); 
 }
 export default function HostVanDetail() {
-  const currentVan = useLoaderData();
+  const { van: currentVan } = useLoaderData();
 
   const activeStyles = {
     fontWeight: "bold",
     textDecoration: "underline",
     color: "#161616",
   };
+
+  if (!currentVan) {
+    return <h2>Loading van...</h2>;
+  }
 
   return (
     <section>
@@ -23,7 +27,7 @@ export default function HostVanDetail() {
 
       <div className="host-van-detail-layout-container">
         <div className="host-van-detail">
-          <img src={currentVan.imageUrl} />
+          <img src={currentVan.imageUrl} alt={currentVan.name} />
           <div className="host-van-detail-info-text">
             <i className={`van-type van-type-${currentVan.type}`}>
               {currentVan.type}
