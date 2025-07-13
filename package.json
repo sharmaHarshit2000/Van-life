@@ -1,6 +1,6 @@
 {
-  "name": "Scrim-s04sl18",
-  "description": "https://v2.scrimba.com/learn-react-router-6-c06/~0a/",
+  "name": "van-life",
+  "description": "A React application focused on learning and demonstrating React Router DOM v6 features through a mock van rental platform.",
   "scripts": {
     "start": "vite",
     "dev": "vite",

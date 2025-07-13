@@ -2,8 +2,8 @@ import { createServer, Model, Response } from "miragejs";
 
 createServer({
   models: {
-    vans: Model,
-    users: Model,
+    van: Model,
+    user: Model,
   },
 
   seeds(server) {
@@ -75,9 +75,9 @@ createServer({
     });
     server.create("user", {
       id: "123",
-      email: "b@b.com",
-      password: "p123",
-      name: "Bob",
+      email: "h@gmail.com",
+      password: "123456",
+      name: "harsh",
     });
   },
 
@@ -86,8 +86,7 @@ createServer({
     this.logging = false;
     this.timing = 1000;
 
-    this.get("/vans", (schema, request) => {
-      // return new Response(400, {}, {error: "Error fetching data"})
+    this.get("/vans", (schema) => {
       return schema.vans.all();
     });
 
@@ -96,23 +95,19 @@ createServer({
       return schema.vans.find(id);
     });
 
-    this.get("/host/vans", (schema, request) => {
-      // Hard-code the hostId for now
+    this.get("/host/vans", (schema) => {
       return schema.vans.where({ hostId: "123" });
     });
 
     this.get("/host/vans/:id", (schema, request) => {
-      // Hard-code the hostId for now
       const id = request.params.id;
       return schema.vans.findBy({ id, hostId: "123" });
     });
 
     this.post("/login", (schema, request) => {
       const { email, password } = JSON.parse(request.requestBody);
-      // This is an extremely naive version of authentication. Please don't
-      // do this in the real world, and never save raw text passwords
-      // in your database 😇
       const foundUser = schema.users.findBy({ email, password });
+
       if (!foundUser) {
         return new Response(
           401,
@@ -121,10 +116,12 @@ createServer({
         );
       }
 
-      // At the very least, don't send the password back to the client 😅
-      foundUser.password = undefined;
       return {
-        user: foundUser,
+        user: {
+          id: foundUser.id,
+          email: foundUser.email,
+          name: foundUser.name,
+        },
         token: "Enjoy your pizza, here's your tokens.",
       };
     });
