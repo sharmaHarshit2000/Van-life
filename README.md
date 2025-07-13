@@ -32,67 +32,67 @@ To get this project running locally:
 
 1. **Clone the repository:**
 
-    ```bash
+   ```bash
     git clone https://github.com/sharmaHarshit2000/Van-life.git
     cd van-life
-    ```
+   ```
 
 2. **Install dependencies:**
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
 3. **Start the development server:**
 
-    ```bash
-    npm run dev
-    ```
+   ```bash
+   npm run dev
+   ```
 
-    The app will typically run at `http://localhost:5173`.
+   The app will typically run at `http://localhost:5173`.
 
 ---
 
 ## 📂 Project Structure
 
 van-life/
-├── public/
+├── public/ # Static files (favicon, etc.)
 ├── src/
-│   ├── assets/
-│   │   └── images/ # App images (about-hero.png, home-hero.png, etc.)
-│   ├── components/ # Reusable UI components
-│   │   ├── Error.jsx
-│   │   ├── Footer.js
-│   │   ├── Header.jsx
-│   │   ├── HostLayout.jsx
-│   │   └── Layout.jsx
-│   ├── pages/ # Main pages
-│   │   ├── Host/ # Host-specific pages
-│   │   │   ├── Dashboard.jsx
-│   │   │   ├── HostVanDetail.jsx
-│   │   │   ├── HostVanInfo.jsx
-│   │   │   ├── HostVanPhotos.jsx
-│   │   │   ├── HostVanPricing.jsx
-│   │   │   ├── HostVans.jsx
-│   │   │   ├── Income.jsx
-│   │   │   └── Reviews.jsx
-│   │   ├── Vans/ # Van listing pages
-│   │   ├── About.jsx
-│   │   ├── Home.jsx
-│   │   ├── Login.jsx
-│   │   └── NotFound.jsx
-│   ├── api.js # API utility or Mirage integration
-│   ├── index.css # Global styles
-│   ├── index.html # Main HTML
-│   ├── index.jsx # App entry point
-│   ├── server.js # MirageJS mock server
-│   └── utils.js # Utility functions
+│ ├── assets/
+│ │ └── images/ # App images (about-hero.png, home-hero.png, etc.)
+│ ├── components/ # Reusable UI components
+│ │ ├── Error.jsx
+│ │ ├── Footer.jsx
+│ │ ├── Header.jsx
+│ │ ├── HostLayout.jsx
+│ │ └── Layout.jsx
+│ ├── pages/ # Main pages
+│ │ ├── About.jsx
+│ │ ├── Home.jsx
+│ │ ├── Login.jsx
+│ │ ├── NotFound.jsx
+│ │ ├── Vans/ # Van listing pages
+│ │ │ └── ... # Van-related page components
+│ │ ├── Host/ # Host-specific pages
+│ │ │ ├── Dashboard.jsx
+│ │ │ ├── HostVanDetail.jsx
+│ │ │ ├── HostVanInfo.jsx
+│ │ │ ├── HostVanPhotos.jsx
+│ │ │ ├── HostVanPricing.jsx
+│ │ │ ├── HostVans.jsx
+│ │ │ ├── Income.jsx
+│ │ │ └── Reviews.jsx
+│ ├── api.js # API utility or Mirage integration
+│ ├── index.css # Global styles
+│ ├── index.jsx # App entry point
+│ ├── server.js # MirageJS mock server
+│ └── utils.js # Utility functions
 ├── .gitattributes
 ├── .gitignore
 ├── package.json
 ├── package-lock.json
 ├── README.md
-└── vite.config.js
+├── vite.config.js
 
 ---
 
@@ -103,16 +103,16 @@ van-life/
 - View and manage hosted vans on the "Host" section.
 - Log in with the mock credentials below:
 
-    ```
-    Email: h@gmail.com
-    Password: 123456
-    ```
+  ```
+  Email: h@gmail.com
+  Password: 123456
+  ```
 
 ---
 
 ## 🌐 Live Demo
 
-🚀 Deployed on **Vercel**:  
-🔗 [View Live Site](https://your-vercel-url.vercel.app)  
+🚀 Deployed on **Netlify**:  
+🔗 [View Live Site](https://appvanlife.netlify.app)
 
 ---
